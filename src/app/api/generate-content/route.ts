@@ -7,7 +7,7 @@ const openai = new OpenAI({
 
 export async function POST(request: NextRequest) {
   try {
-    const { topic, generateImage = false } = await request.json();
+    const { topic } = await request.json();
 
     if (!topic) {
       return NextResponse.json(
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
       } else {
         throw new Error("JSON формат олдсонгүй");
       }
-    } catch (parseError) {
+    } catch {
       // JSON parse хийхэд алдаа гарвал энгийн форматтай болгох
       parsedResponse = {
         title: `${topic} - Cloud технологийн шийдлүүд`,

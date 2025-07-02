@@ -9,6 +9,7 @@ import {
   Download,
   Save,
 } from "lucide-react";
+import Image from "next/image";
 
 interface ContentData {
   title: string;
@@ -174,10 +175,11 @@ export default function Home() {
               <div className="relative h-64 bg-gradient-to-r from-blue-500 to-purple-600">
                 {content.imageUrl ? (
                   <div className="absolute inset-0">
-                    <img
+                    <Image
                       src={content.imageUrl}
                       alt={content.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 ) : (
